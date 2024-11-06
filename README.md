@@ -42,7 +42,10 @@ Image와 같이 바위 오브젝트를 만들고 제취 아이템으로 돌(Item
   <summary>코드</summary>
     <div markdown="1">
       <ul>
-        <li>
+        <li>EquipTool.cs</li>
+        <img src = "https://github.com/user-attachments/assets/636b4faf-8013-48a0-a088-b20eadc11250">
+        <li>PlayerCondition.cs</li>
+        <img src = "https://github.com/user-attachments/assets/78375bb5-c10b-48a8-8eea-1b86a084fc6a">
       </ul>
     </div>
 </details>
@@ -50,3 +53,45 @@ Image와 같이 바위 오브젝트를 만들고 제취 아이템으로 돌(Item
 ---
 
 ### [요구사항 3] 개선 문제
+
+---
+
+## Q2
+### [요구사항 1] 분석 문제
+#### 1. AI Navigation에서 가장 핵심이 되는 개념 복습
+유니티에서는 내비게이션 메시를 자동으로 생성하여 게임 캐릭터가 갈 수 있는 곳, 없는 곳을 구분하고 최적의 경로를 탐색하여 움직일 수 있는 AI Navigation 시스템이 있다.
+
+- NavMesh (Navigation Mesh)   
+게임 월드에서 걸을 수 있는 표면을 뜻한다. 이동 가능/불가능한 곳을 설정하고, 그 위에서 어느 한 위치로 이동할 수 있는 최적의 경로를 찾아 자동으로 이동시킬 수 있다.
+
+- NavMesh Agent   
+NavMesh Agent 컴포넌트를 사용하여 목표 위치로 이동하는 동안 장애물, 다른 NavMeshAgent를 피할 수 있는 캐릭터를 만들 수 있다.
+Obstacle Avoidance를 통해 자신의 회피 영역을 설정할 수 있다.
+
+- NavMesh Obstacle   
+이 컴포넌트를 사용하여 장애물을 설정할 수 있다. 움직이는 장애물이면 피하도록 설정, 정지한 경우 NavMesh 상에서 갈 수 없는 곳으로 설정한다. 경로를 완전히 차단하면 다른 경로를 찾게 할 수 있다.
+
+**AI Navigation의 주요 기능**
+1. NavMesh - 이동 가능 영역 구분
+2. Pathfinding - 경로 탐색
+3. Steering Behavior - 오브젝트가 경로를 따라 이동할 때 자연스러운 동작 구현
+4. Obstacle Avoidance - 장애물 회피
+5. Local Avoidance - 오브젝트 간 회피
+
+#### 2. NPC 기능의 구조와 핵심 로직 분석
+3가지 상태 Idle, Wandering, Attacking을 가진다.   
+Update에서는 현재 상태만 확인하여 그 상태의 Update메서드를 호출한다.   
+Idle, Wandering 상태에서는 PassiveUpdate를 호출하는데 Idle 상태와 Wandering 상태를 상황에 맞게 서로 바꿔준다.   
+이 때 플레이어가 detectDistance 안에 있으면 Attacking 상태로 전환한다.   
+Attacking 상태에서 호출되는 AttackingUpdate에서   
+- 공격 거리, 시야 안에 있으면 공격   
+- 공격거리 < 플레이어 거리 < 탐지거리: 추적 가능한 경로인지 판단해서 추적하거나 Wandering 상태로 전환   
+- 그 외: Wandering 상태로 전환   
+IDamagable을 상속 받아 플레이어에게 공격받으면 TakePhysicalDamage 호출
+
+---
+
+### [요구사항 2] 확장 문제
+#### 1. AI 네비게이션 기능을 바탕으로 펫 기능 구현
+
+#### 2. AI 네비게이션 기능을 바탕으로 원거리 공격 몬스터 구현 (ex. 기존 몬스터보다 추적 범위를 넓히고 원거리에서 무기를 던짐)
