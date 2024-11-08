@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 536ec39033c0daf40863ec0e0b2f6d30, type: 3}
+  m_Name: Item_MagicSword
+  m_EditorClassIdentifier: 
+  displayName: "\uCE7C"
+  description: "\uACF5\uACA9\uC6A9 \uCE7C\uC785\uB2C8\uB2E4."
+  type: 0
+  icon: {fileID: 21300000, guid: 4f2f320a217307a48a107491b1d17ebb, type: 3}
+  dropPrefab: {fileID: 4338931360758941438, guid: 583dd4120083d7e4083bbb2293ad7e79, type: 3}
+  canStack: 0
+  maxStackAmount: 0
+  consumables: []
+  equipPrefab: {fileID: 6211225424050894994, guid: 55eb3571b35c5cd4dad9328fbd9ba6ba, type: 3}
+  isMasic: 1
