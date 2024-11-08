@@ -37,19 +37,6 @@ Image와 같이 바위 오브젝트를 만들고 제취 아이템으로 돌(Item
 #### 2. 두 개의 능력치를 사용하는 새로운 무기를 만들고 구현
 ![Q1-2-2](https://github.com/user-attachments/assets/b435b0b9-214b-47e4-8032-cf765cac7484)
 
-
-<details>
-  <summary>코드</summary>
-    <div markdown="1">
-      <ul>
-        <li>EquipTool.cs</li>
-        <img src = "https://github.com/user-attachments/assets/636b4faf-8013-48a0-a088-b20eadc11250">
-        <li>PlayerCondition.cs</li>
-        <img src = "https://github.com/user-attachments/assets/78375bb5-c10b-48a8-8eea-1b86a084fc6a">
-      </ul>
-    </div>
-</details>
-
 ---
 
 ### [요구사항 3] 개선 문제
